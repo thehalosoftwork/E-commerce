@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOLÈNE — Luxury Footwear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-mask" id="cartMask" onclick="closeCart()"></div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-head">
+      <h2>Your Selection</h2>
+      <button class="cart-x" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty-state" id="cartEmpty">
+        <div class="cart-empty-icon">◇</div>
+        <p>Your selection is empty</p>
+      </div>
+    </div>
+    <div class="cart-foot" id="cartFoot" style="display:none;">
+      <div class="cart-sub">
+        <span class="cart-sub-label">Subtotal</span>
+        <span class="cart-sub-amt" id="cartTotal">$0</span>
+      </div>
+      <button class="cart-checkout">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="logo">SOL<span>È</span>NE</a>
+    <ul class="nav-links">
+      <li><a href="#categories">Collections</a></li>
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#editorial">Atelier</a></li>
+      <li><a href="#newsletter">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-btn">Search</button>
+      <div class="cart-wrap">
+        <button class="nav-btn" onclick="openCart()">Bag</button>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-eyebrow">New Arrivals — SS 2025</span>
+      <h1 class="hero-title">Where <em>Form</em><br>Meets<br>Desire</h1>
+      <p class="hero-desc">Handcrafted footwear for those who understand that luxury is felt before it is seen. Each pair, a statement of quiet authority.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-gold">Explore Collection</a>
+        <a href="#editorial" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img class="hero-photo"
+        src="https://images.pexels.com/photos/1032110/pexels-photo-1032110.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        alt="Hero shoe"
+        onerror="this.src='https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1400'"/>
+      <div class="hero-vignette"></div>
+      <div class="hero-tag">
+        <span>New Arrival</span>
+        <strong>The Maison Blanc</strong>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-txt">Scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <span class="m-item">New Collection SS25</span><span class="m-dot">◆</span>
+      <span class="m-item">Free Shipping Over $400</span><span class="m-dot">◆</span>
+      <span class="m-item">Handcrafted in Italy</span><span class="m-dot">◆</span>
+      <span class="m-item">Limited Edition Releases</span><span class="m-dot">◆</span>
+      <span class="m-item">Complimentary Gift Wrapping</span><span class="m-dot">◆</span>
+      <span class="m-item">New Collection SS25</span><span class="m-dot">◆</span>
+      <span class="m-item">Free Shipping Over $400</span><span class="m-dot">◆</span>
+      <span class="m-item">Handcrafted in Italy</span><span class="m-dot">◆</span>
+      <span class="m-item">Limited Edition Releases</span><span class="m-dot">◆</span>
+      <span class="m-item">Complimentary Gift Wrapping</span><span class="m-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="sec cat-sec" id="categories">
+    <span class="sec-label">Our World</span>
+    <h2 class="sec-title">Shop by <em>Category</em></h2>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterAndScroll('sneakers')">
+        <img class="cat-photo"
+          src="https://baccabucci.com/cdn/shop/products/MG_6694-min.jpg?v=1647980995&width=1800"
+          alt="Sneakers"
+          onerror="this.style.background='#1A1714'"/>
+        <div class="cat-overlay">
+          <div class="cat-name">Sneakers</div>
+          <div class="cat-count">24 Styles</div>
+          <button class="cat-cta">Shop Now <span class="cat-arrow">→</span></button>
+        </div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('boots')">
+        <img class="cat-photo"
+          src="https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/B46206s.jpg?im=Resize,width=750"
+          alt="Boots"
+          onerror="this.style.background='#1A1714'"/>
+        <div class="cat-overlay">
+          <div class="cat-name">Boots</div>
+          <div class="cat-count">18 Styles</div>
+          <button class="cat-cta">Shop Now <span class="cat-arrow">→</span></button>
+        </div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('sandals')">
+        <img class="cat-photo"
+          src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ3NqqJfncM_VDODwIfe1Nm_aXsiT3mApUWzkkongVMEvrfPQ4hjTFCwMEVFWgGHepyaOdkm028oenLC-zbr3AbGxJRKT02"
+          alt="Sandals"
+          onerror="this.style.background='#1A1714'"/>
+        <div class="cat-overlay">
+          <div class="cat-name">Sandals</div>
+          <div class="cat-count">16 Styles</div>
+          <button class="cat-cta">Shop Now <span class="cat-arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="sec prod-sec" id="products">
+    <span class="sec-label">Curated Selection</span>
+    <h2 class="sec-title">Featured <em>Pieces</em></h2>
+    <div class="filter-row">
+      <button class="f-btn active" onclick="applyFilter('all', this)">All</button>
+      <button class="f-btn" onclick="applyFilter('sneakers', this)">Sneakers</button>
+      <button class="f-btn" onclick="applyFilter('boots', this)">Boots</button>
+      <button class="f-btn" onclick="applyFilter('sandals', this)">Sandals</button>
+      <button class="f-btn" onclick="applyFilter('new', this)">New Arrivals</button>
+    </div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </section>
+
+  <!-- FEATURE STRIP -->
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-icon">✦</div>
+      <div class="strip-title">Italian Artisanship</div>
+      <div class="strip-desc">Every pair handcrafted in our Florence atelier by master cobblers</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">◇</div>
+      <div class="strip-title">Complimentary Shipping</div>
+      <div class="strip-desc">White-glove delivery on all orders above $400 worldwide</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">⟳</div>
+      <div class="strip-title">30-Day Returns</div>
+      <div class="strip-desc">Effortless returns and exchanges, no questions asked</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">◈</div>
+      <div class="strip-title">Lifetime Care</div>
+      <div class="strip-desc">Complimentary resoling and restoration for all SOLÈNE pieces</div>
+    </div>
+  </div>
+
+  <!-- EDITORIAL -->
+  <section class="edit-sec" id="editorial">
+    <div class="edit-visual">
+      <img class="edit-photo"
+        src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        alt="Atelier"
+        onerror="this.style.background='#141210'"/>
+      <div class="edit-vig"></div>
+    </div>
+    <div class="edit-content">
+      <span class="sec-label">Our Philosophy</span>
+      <h2 class="sec-title" style="margin-bottom:24px;">Crafted with<br><em>Intention</em></h2>
+      <p class="edit-body">At SOLÈNE, we believe that extraordinary footwear is the intersection of centuries-old craft and contemporary vision. Founded in Florence in 2012, our atelier works with the finest leathers sourced from family-owned tanneries that share our commitment to quality and sustainability.<br><br>Every sole is stitched by hand. Every upper shaped on wooden lasts carved to perfection. This is not mass production — it is devotion made tangible.</p>
+      <a href="#" class="btn-gold" style="align-self:flex-start;">Read Our Story</a>
+      <div class="edit-stats">
+        <div><span class="s-num">12+</span><span class="s-label">Years in Florence</span></div>
+        <div><span class="s-num">48</span><span class="s-label">Artisan Partners</span></div>
+        <div><span class="s-num">94%</span><span class="s-label">Natural Materials</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec review-sec">
+    <span class="sec-label">Client Stories</span>
+    <h2 class="sec-title text-center">Worn with <em>Love</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-q">"The Maison Blanc is unlike anything I've owned. The leather broke in within days and now feels like a second skin. Worth every penny."</p>
+        <div class="review-who">Isabelle M. <em>— Paris, France</em></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-q">"I wore my Noir Chelsea boots to three countries in one week. They looked impeccable at every occasion. True investment pieces."</p>
+        <div class="review-who">James T. <em>— London, UK</em></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-q">"The packaging alone made me feel special. The Capri Slide is sculptural art that also happens to be the most comfortable shoe I own."</p>
+        <div class="review-who">Valentina R. <em>— Milan, Italy</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="nl-sec" id="newsletter">
+    <span class="sec-label" style="display:block;">Stay Connected</span>
+    <h2 class="sec-title" style="margin-bottom:16px;">Join the <em>Inner Circle</em></h2>
+    <p class="nl-desc">New arrivals, exclusive previews, and invitations to private events — delivered with discretion.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" id="nlEmail" placeholder="Your email address"/>
+      <button class="nl-sub" onclick="handleNewsletter()">Subscribe</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo">SOL<span>È</span>NE</a>
+        <p class="foot-desc">Luxury footwear crafted for those who understand that elegance is a language spoken softly.</p>
+        <div class="foot-socials">
+          <a href="#" class="soc">𝕏</a>
+          <a href="#" class="soc">◫</a>
+          <a href="#" class="soc">⬡</a>
+          <a href="#" class="soc">◈</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-head">Shop</div>
+        <ul class="foot-links">
+          <li><a href="#">Sneakers</a></li>
+          <li><a href="#">Boots</a></li>
+          <li><a href="#">Sandals</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-head">Atelier</div>
+        <ul class="foot-links">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Craftsmanship</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Lookbook</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-head">Client Care</div>
+        <ul class="foot-links">
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shoe Care</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Lifetime Repair</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">© 2025 SOLÈNE. All rights reserved.</span>
+      <ul class="foot-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Cookie Settings</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
